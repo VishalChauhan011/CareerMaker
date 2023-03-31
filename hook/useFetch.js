@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
-import {REACT_APP_RAPID_API_KEY} from "@env"
+import axios from "axios";
+import { REACT_APP_RAPID_API_KEY } from "@env";
 
-
-const useFetch = (endpoint, query) => {
+const useFetch = (endpoint, query, delay) => {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,28 +19,27 @@ const useFetch = (endpoint, query) => {
   const fetchData = async () => {
     setLoading(true);
 
-    try{
-      const response = await axios.request
-      (options);
+    try {
+      const response = await axios.request(options);
       setData(response.data.data);
       setLoading(false);
-    } catch(error) {
-        setError(error);
-        alert('There is an error'); 
+    } catch (error) {
+      setError(error);
+      alert("There is an error");
     } finally {
-          setLoading(false);
+      setLoading(false);
     }
-  }  
+  };
 
-   useEffect(() => {
-        fetchData();
-   }, []);
+  useEffect(() => {
+    setTimeout(() => fetchData(), delay || 10);
+  }, []);
 
-   const refetch = () => {
+  const refetch = () => {
     setLoading(true);
     fetchData();
-   }
-   return { data, isLoading, error, refetch };
+  };
+  return { data, isLoading, error, refetch };
 };
 
 export default useFetch;
