@@ -46,7 +46,6 @@ const JobSearch = () => {
       setSearchResult(response.data.data);
     } catch (error) {
       setSearchError(error);
-      console.log(error);
     } finally {
       setSearchLoader(false);
     }
@@ -67,10 +66,10 @@ const JobSearch = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.bgcolor }}>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerStyle: { backgroundColor: COLORS.bgcolor },
           headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn
@@ -103,7 +102,11 @@ const JobSearch = () => {
               {searchLoader ? (
                 <ActivityIndicator size="large" color={COLORS.primary} />
               ) : (
-                searchError && <Text>Oops something went wrong</Text>
+                searchError && (
+                  <Text style={{ color: COLORS.white }}>
+                    Oops something went wrong
+                  </Text>
+                )
               )}
             </View>
           </>

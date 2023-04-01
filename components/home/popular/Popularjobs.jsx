@@ -24,10 +24,13 @@ const Popularjobs = () => {
     },
     3000
   );
-
+  console.log("pj", error);
   const [selectedJob, setSelectedJob] = useState();
 
-  const handleCardPress = (item) => {};
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id);
+  };
 
   return (
     <View style={styles.container}>
@@ -42,7 +45,7 @@ const Popularjobs = () => {
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.primary} />
         ) : error ? (
-          <Text>{error.message}</Text>
+          <Text style={{ color: COLORS.white }}>Something went wrong</Text>
         ) : (
           <FlatList
             data={data}

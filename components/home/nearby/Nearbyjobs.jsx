@@ -18,6 +18,7 @@ const Nearbyjobs = () => {
     },
     5000
   );
+  console.log("nj", error);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -31,7 +32,7 @@ const Nearbyjobs = () => {
         {isLoading ? (
           <ActivityIndicator size="large" color={COLORS.primary} />
         ) : error ? (
-          <Text>{error.message}</Text>
+          <Text style={{ color: COLORS.white }}>Something went wrong</Text>
         ) : (
           data?.map((job) => (
             <NearbyJobCard

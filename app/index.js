@@ -6,7 +6,6 @@ import { COLORS, icons, images, SIZES } from "../constants";
 import {
   Nearbyjobs,
   Popularjobs,
-  ScreenHeaderBt,
   ScreenHeaderBtn,
   Welcome,
 } from "../components";
@@ -17,10 +16,10 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.bgcolor }}>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerStyle: { backgroundColor: COLORS.bgcolor },
           headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />

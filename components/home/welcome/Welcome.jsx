@@ -12,7 +12,7 @@ import {
 import { useRouter } from "expo-router";
 
 import styles from "./welcome.style";
-import { icons, SIZES } from "../../../constants";
+import { COLORS, icons, SIZES } from "../../../constants";
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
@@ -23,7 +23,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello John</Text>
+        <Text style={styles.userName}>Hello Berlin,</Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
       </View>
 
@@ -34,6 +34,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
             value={searchTerm}
             onChangeText={(text) => setSearchTerm(text)}
             placeholder="What are you looking for?"
+            placeholderTextColor={COLORS.lightWhite}
           />
         </View>
 
