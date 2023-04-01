@@ -32,7 +32,7 @@ const useFetch = (endpoint, query, delay) => {
   };
 
   useEffect(() => {
-    setTimeout(() => fetchData(), delay || 10);
+    setTimeout(() => fetchData(), delay || 1000);
   }, []);
 
   const refetch = () => {
